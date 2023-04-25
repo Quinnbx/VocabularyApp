@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* WordsListView.swift */; };
+		EB27629429E378B700D45377 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27629329E378B700D45377 /* WordView.swift */; };
+		EB43455B29E4F84400E39F43 /* VocabBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB43455A29E4F84400E39F43 /* VocabBookView.swift */; };
+		EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49747929EA4E3D007DA920 /* CreateWordView.swift */; };
+		EB4E852729E6340900A4FF1E /* WordSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E852629E6340900A4FF1E /* WordSearchView.swift */; };
 		EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */; };
-		EBE36E1129E0DD95001567B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E1029E0DD95001567B5 /* ContentView.swift */; };
 		EBE36E1329E0DD96001567B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1229E0DD96001567B5 /* Assets.xcassets */; };
 		EBE36E1729E0DD96001567B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1629E0DD96001567B5 /* Preview Assets.xcassets */; };
 		EBE36E2129E0DD97001567B5 /* VocabularyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2029E0DD97001567B5 /* VocabularyTests.swift */; };
 		EBE36E2B29E0DD97001567B5 /* VocabularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2A29E0DD97001567B5 /* VocabularyUITests.swift */; };
 		EBE36E2D29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2C29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift */; };
+		EBE36E3C29E0DE6D001567B5 /* VocabBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */; };
+		EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */; };
+		EBE36E4029E0DEB0001567B5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3F29E0DEB0001567B5 /* Word.swift */; };
+		EBE36E4229E0F65D001567B5 /* VocabBooksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB023CBD29E2252F00038467 /* WordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListView.swift; sourceTree = "<group>"; };
+		EB27629329E378B700D45377 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		EB43455A29E4F84400E39F43 /* VocabBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBookView.swift; sourceTree = "<group>"; };
+		EB49747929EA4E3D007DA920 /* CreateWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordView.swift; sourceTree = "<group>"; };
+		EB4E852629E6340900A4FF1E /* WordSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchView.swift; sourceTree = "<group>"; };
 		EBE36E0B29E0DD95001567B5 /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyApp.swift; sourceTree = "<group>"; };
-		EBE36E1029E0DD95001567B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBE36E1229E0DD96001567B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBE36E1429E0DD96001567B5 /* Vocabulary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vocabulary.entitlements; sourceTree = "<group>"; };
 		EBE36E1629E0DD96001567B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +57,10 @@
 		EBE36E2629E0DD97001567B5 /* VocabularyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabularyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE36E2A29E0DD97001567B5 /* VocabularyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyUITests.swift; sourceTree = "<group>"; };
 		EBE36E2C29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBooksView.swift; sourceTree = "<group>"; };
+		EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBook.swift; sourceTree = "<group>"; };
+		EBE36E3F29E0DEB0001567B5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBooksData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */,
-				EBE36E1029E0DD95001567B5 /* ContentView.swift */,
+				EBE36E3929E0DE2C001567B5 /* Models */,
+				EBE36E3A29E0DE39001567B5 /* Views */,
 				EBE36E1229E0DD96001567B5 /* Assets.xcassets */,
 				EBE36E1429E0DD96001567B5 /* Vocabulary.entitlements */,
 				EBE36E1529E0DD96001567B5 /* Preview Content */,
@@ -127,6 +144,29 @@
 				EBE36E2C29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift */,
 			);
 			path = VocabularyUITests;
+			sourceTree = "<group>";
+		};
+		EBE36E3929E0DE2C001567B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */,
+				EBE36E3F29E0DEB0001567B5 /* Word.swift */,
+				EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EBE36E3A29E0DE39001567B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */,
+				EB023CBD29E2252F00038467 /* WordsListView.swift */,
+				EB27629329E378B700D45377 /* WordView.swift */,
+				EB43455A29E4F84400E39F43 /* VocabBookView.swift */,
+				EB4E852629E6340900A4FF1E /* WordSearchView.swift */,
+				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE36E1129E0DD95001567B5 /* ContentView.swift in Sources */,
+				EBE36E4229E0F65D001567B5 /* VocabBooksData.swift in Sources */,
+				EBE36E3C29E0DE6D001567B5 /* VocabBooksView.swift in Sources */,
+				EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */,
+				EB4E852729E6340900A4FF1E /* WordSearchView.swift in Sources */,
+				EB27629429E378B700D45377 /* WordView.swift in Sources */,
+				EBE36E4029E0DEB0001567B5 /* Word.swift in Sources */,
+				EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */,
+				EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */,
 				EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */,
+				EB43455B29E4F84400E39F43 /* VocabBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

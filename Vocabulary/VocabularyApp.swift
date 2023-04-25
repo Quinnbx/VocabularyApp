@@ -11,7 +11,7 @@ import SwiftUI
 struct VocabularyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VocabBooksView()
         }
     }
 }
