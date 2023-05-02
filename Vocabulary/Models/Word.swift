@@ -10,7 +10,7 @@ import Foundation
 struct Word: Identifiable, Hashable {
     var id = UUID()
     
-    var name: String = ""
+    var name: String
     
     init(){
         self.init(name: "")
@@ -36,12 +36,15 @@ struct Word: Identifiable, Hashable {
 }
 
 struct Information {
+    var initial = ""
     var definitions = Set<Definition>()
     var POSs = Set<POS>()
     var examples = Set<Example>()
     var sources = Set<Source>()
     
-    init() {}
+    init() {
+        initial = "No more information"
+    }
     init(definition: Definition, pos: POS, example: Example, source: Source) {
         self.definitions.insert(definition)
         self.POSs.insert(pos)

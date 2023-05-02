@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct VocabBookView: View {
-    @StateObject var book: VocabularyBook
+    @EnvironmentObject var book: VocabularyBook
     
     var body: some View {
         VStack {
                 NavigationLink(destination: CreateWordView().environmentObject(book)) {
                     Text("Add a word")
                 }
-                NavigationLink(destination: WordsListView(book: book)) {
+                NavigationLink(destination: WordsListView().environmentObject(book)) {
                     Text("All Vocabulary")
                 }
             
@@ -25,6 +25,6 @@ struct VocabBookView: View {
 
 struct VocabBookView_Previews: PreviewProvider {
     static var previews: some View {
-        VocabBookView(book: VocabularyBook())
+        VocabBookView()
     }
 }

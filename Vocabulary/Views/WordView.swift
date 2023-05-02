@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct WordView: View {
-    @Binding var word: Word
-    @Binding var info: Information
-    @State var isEditing: [String: Bool] = [:]
+    @State var word: Word
+    @State var info: Information
+    @State var isEditing = false
     
     var body: some View {
         VStack {
@@ -19,6 +19,9 @@ struct WordView: View {
             displaySet(set: $info.POSs, title: "Parts of Speech")
             displaySet(set: $info.examples, title: "Examples")
             displaySet(set: $info.sources, title: "Sources")
+            Button("Edit") {
+                self.isEditing = true
+            }
         }
     }
     
@@ -29,14 +32,23 @@ struct WordView: View {
                 .padding(.top, 16)
             ForEach(Array(set.wrappedValue), id: \.self) { item in
                 if let def = item as? Definition {
-                    let textBinding = Binding<String>(
+                    let textBinding = Binding(
                         get: { def.def },
                         set: { newValue in
+                            var newSet = set.wrappedValue
                             let newDef = Definition(def: newValue)
-                            set.wrappedValue.insert(newDef as! T)
+                            newSet.remove(def as! T)
+                            newSet.insert(newDef as! T)
+                            set.wrappedValue = newSet
                         }
                     )
-                    AnyView(EditableText(text: textBinding))
+                    AnyView(EditableText(text: textBinding, isEditing: $isEditing, saveAction: {
+                        let newDef = Definition(def: textBinding.wrappedValue)
+                        var newSet = set.wrappedValue
+                        newSet.remove(def as! T)
+                        newSet.insert(newDef as! T)
+                        set.wrappedValue = newSet
+                    }))
                 } else if let pos = item as? POS {
                     Text(pos.pos)
                 } else if let ex = item as? Example {
@@ -49,26 +61,38 @@ struct WordView: View {
             }
         }
     }
-    
+
 }
 
+
 struct EditableText: View {
-    @State private var isEditing = false
     @Binding var text: String
+    @Binding var isEditing: Bool
+    let saveAction: () -> Void
     
     var body: some View {
         Group {
             if isEditing {
-                TextField("", text: $text, onEditingChanged: { isEditing in
-                    self.isEditing = isEditing
-                })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                    .onAppear {
-                        DispatchQueue.main.async {
-                            UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
+                HStack {
+                    TextField("", text: $text)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.horizontal)
+                        .onAppear {
+                            DispatchQueue.main.async {
+                                UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
+                            }
                         }
-                    }
+                        .onChange(of: text) { _ in
+                            // Do nothing, but update the view to reflect the changed text
+                        }
+                    
+                    Button(action: {
+                        self.isEditing = false
+                        saveAction() // Call the save action when the user taps the Save button
+                    }, label: {
+                        Text("Save")
+                    })
+                }
             } else {
                 Text(text)
                     .onTapGesture {
@@ -80,6 +104,7 @@ struct EditableText: View {
     }
 }
 
+
 struct WordView_Previews: PreviewProvider {
     @State static var w = Word(name: "who")
     @State static var i = Information(
@@ -88,6 +113,6 @@ struct WordView_Previews: PreviewProvider {
         example: Example(ex: "Who is that woman?"),
         source: Source(src: "oxfordlearnersdictionaries"))
     static var previews: some View {
-        WordView(word: $w, info: $i)
+        WordView(word: w, info: i)
     }
 }

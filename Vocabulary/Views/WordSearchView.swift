@@ -22,15 +22,14 @@ struct WordSearchView: View {
     }
     
     var body: some View {
-        Form {
-            ForEach(filteredWords, id: \.self) { word in
-                if let info = book.words[word] {
-                    NavigationLink(destination: WordView(word: word, info: info)) {
+        NavigationView {
+            List(Array(filteredWords), id: \.self) { word in
+                NavigationLink(
+                    destination: WordView(word: word, info: book.words[word] ?? Information()),
+                    label: {
                         Text(word.name)
                     }
-                } else {
-                    Text(word.name)
-                }
+                )
             }
         }
     }

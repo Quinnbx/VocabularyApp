@@ -13,7 +13,7 @@ struct VocabBooksView: View {
         NavigationView {
             List(Array(books), id: \.self) { book in
                 NavigationLink(
-                    destination: VocabBookView(book: book),
+                    destination: VocabBookView().environmentObject(book),
                     label: {
                         Text(book.n)
                     }
@@ -21,6 +21,7 @@ struct VocabBooksView: View {
             }
             .navigationTitle(navigationTitle)
         }
+        .environmentObject(vocabBookData)
     }
 }
 
@@ -35,7 +36,6 @@ extension VocabBooksView {
 }
 
 struct VocabBooksView_Previews: PreviewProvider {
-    @State static var dataBooks = VocabBooksData().vocabBooks
     static var previews: some View {
         VocabBooksView()
     }
