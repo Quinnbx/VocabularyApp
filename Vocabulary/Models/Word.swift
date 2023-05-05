@@ -36,64 +36,48 @@ struct Word: Identifiable, Hashable {
 }
 
 struct Information {
-    var initial = ""
-    var definitions = Set<Definition>()
-    var POSs = Set<POS>()
-    var examples = Set<Example>()
-    var sources = Set<Source>()
-    
+    private var definitions: String
+    private var POSs: String
+    private var examples: String
+
     init() {
-        initial = "No more information"
+        self.definitions = ""
+        self.POSs = ""
+        self.examples = ""
     }
-    init(definition: Definition, pos: POS, example: Example, source: Source) {
-        self.definitions.insert(definition)
-        self.POSs.insert(pos)
-        self.examples.insert(example)
-        self.sources.insert(source)
-    }
-    
-    mutating func addDef(def: Definition) {
-        self.definitions.insert(def)
-    }
-    
-    mutating func addPOS(pos: POS) {
-        self.POSs.insert(pos)
-    }
-    
-}
 
-/**a definition of a word**/
-struct Definition: Hashable {
-    var def: String
-}
+    init(defs: String, poss: String, exs: String) {
+        self.definitions = defs
+        self.POSs = poss
+        self.examples = exs
+    }
+    
 
-/**a tense of a word**/
-struct POS: Hashable {
-    var pos: String
-}
+    // Getter and setter for definitions
+    func getDefinitions() -> String {
+        return definitions
+    }
 
-/**an example of using a word**/
-struct Example: Hashable {
-    var ex: String
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(ex)
+    mutating func setDefinitions(_ newValue: String) {
+        definitions = newValue
     }
-    
-    static func ==(lhs: Example, rhs: Example) -> Bool {
-        return lhs.ex == rhs.ex
-    }
-}
 
-/**a source (reference) of a word**/
-struct Source: Hashable {
-    var src: String
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(src)
+    // Getter and setter for POSs
+    func getPOSs() -> String {
+        return POSs
+    }
+
+    mutating func setPOSs(_ newValue: String) {
+        POSs = newValue
+    }
+
+    // Getter and setter for examples
+    func getExamples() -> String {
+        return examples
+    }
+
+    mutating func setExamples(_ newValue: String) {
+        examples = newValue
     }
     
-    static func ==(lhs: Source, rhs: Source) -> Bool {
-        return lhs.src == rhs.src
-    }
 }

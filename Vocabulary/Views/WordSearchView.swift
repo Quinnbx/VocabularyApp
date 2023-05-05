@@ -23,14 +23,14 @@ struct WordSearchView: View {
     
     var body: some View {
         NavigationView {
-            List(Array(filteredWords), id: \.self) { word in
-                NavigationLink(
-                    destination: WordView(word: word, info: book.words[word] ?? Information()),
-                    label: {
-                        Text(word.name)
-                    }
-                )
-            }
+//            List(Array(filteredWords), id: \.self) { word in
+//                NavigationLink(
+//                    destination: WordView(word: word, info: book.words[word] ?? Information()),
+//                    label: {
+//                        Text(word.name)
+//                    }
+//                )
+//            }
         }
     }
     

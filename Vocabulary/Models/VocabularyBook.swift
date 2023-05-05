@@ -49,44 +49,36 @@ class VocabularyBook: Identifiable, ObservableObject, Hashable {
 extension VocabularyBook {
     static let testVocabBook = VocabularyBook(words: [
         Word(name: "who"): Information(
-            definition: Definition(def: "used in questions to ask about the name, identity or function of one or more people"),
-            pos: POS(pos: "pronoun"),
-            example: Example(ex: "Who is that woman?"),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "used in questions to ask about the name, identity or function of one or more people",
+            poss: "pronoun",
+            exs: "Who is that woman?"),
         Word(name: "ever"): Information(
-            definition: Definition(def: "used in negative sentences and questions, or sentences with if to mean ‘at any time’"),
-            pos: POS(pos: "adverb"),
-            example: Example(ex: "Nothing ever happens here."),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "used in negative sentences and questions, or sentences with if to mean ‘at any time’",
+            poss: "adverb",
+            exs: "Nothing ever happens here."),
         Word(name: "loved"): Information(
-            definition: Definition(def: "to have very strong feelings of liking and caring for somebody"),
-            pos: POS(pos: "verb"),
-            example: Example(ex: "I love you."),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "to have very strong feelings of liking and caring for somebody",
+            poss: "verb",
+            exs: "I love you."),
         Word(name: "that"): Information(
-            definition: Definition(def: "used for referring to a person or thing that is not near the speaker or as near to the speaker as another"),
-            pos: POS(pos: "determiner"),
-            example: Example(ex: "Look at that man over there."),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "used for referring to a person or thing that is not near the speaker or as near to the speaker as another",
+            poss: "determiner",
+            exs: "Look at that man over there."),
         Word(name: "not"): Information(
-            definition: Definition(def: "used with be, do or have to form the negative of verbs; used to form the negative of modal verbs like can or must"),
-            pos: POS(pos: "adverb"),
-            example: Example(ex: "used with be, do or have to form the negative of verbs; used to form the negative of modal verbs like can or must"),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "used with be, do or have to form the negative of verbs; used to form the negative of modal verbs like can or must",
+            poss: "adverb",
+            exs: "used with be, do or have to form the negative of verbs; used to form the negative of modal verbs like can or must"),
         Word(name: "at"): Information(
-            definition: Definition(def: "used to say where something/somebody is or where something happens"),
-            pos: POS(pos: "preposition"),
-            example: Example(ex: "at the corner of the street"),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "used to say where something/somebody is or where something happens",
+            poss: "preposition",
+            exs: "at the corner of the street"),
         Word(name: "first"): Information(
-            definition: Definition(def: "happening or coming before all other similar things or people; 1st"),
-            pos: POS(pos: "determiner"),
-            example: Example(ex: "I didn't take the first bus."),
-            source: Source(src: "oxfordlearnersdictionaries")),
+            defs: "happening or coming before all other similar things or people; 1st",
+            poss: "determiner",
+            exs: "I didn't take the first bus."),
         Word(name: "sight"): Information(
-            definition: Definition(def: "the ability to see"),
-            pos: POS(pos: "noun"),
-            example: Example(ex: "She has very good sight."),
-            source: Source(src: "oxfordlearnersdictionaries"))
+            defs: "the ability to see",
+            poss: "noun",
+            exs: "She has very good sight.")
         ])
 }
