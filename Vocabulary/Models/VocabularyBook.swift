@@ -43,6 +43,12 @@ class VocabularyBook: Identifiable, ObservableObject, Hashable {
         }
     }
     
+    func rename(oldWord: Word, newWord: Word) {
+        if let info = words.removeValue(forKey: oldWord) {
+            words[newWord] = info
+        }
+    }
+    
     
 }
 
