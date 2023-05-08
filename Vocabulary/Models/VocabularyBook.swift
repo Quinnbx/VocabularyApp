@@ -12,7 +12,7 @@ class VocabularyBook: Identifiable, ObservableObject, Hashable {
     
     var n = "My Vocab Book"
     
-    var words = [Word : Information]()
+    @Published var words = [Word : Information]()
     
     init() {}
     

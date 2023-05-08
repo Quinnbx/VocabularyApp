@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WordView: View {
     @EnvironmentObject var book: VocabularyBook
-    var index: Int
+    @State private var index: Int
 
     private var word: Word {
         Array(book.words.keys)[index]
@@ -17,13 +17,25 @@ struct WordView: View {
 
     @State var isEditing = false
     @State var editedDef = ""
+    @State var editedName = ""
+
+    init(index: Int) {
+        _index = State(initialValue: index)
+    }
 
     var body: some View {
         Form {
             Section {
-                Text(word.name)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
+                if isEditing {
+                    TextField("Word", text: $editedName)
+                        .onAppear {
+                            editedName = word.name
+                        }
+                } else {
+                    Text(word.name)
+                        .font(.title)
+                        .multilineTextAlignment(.center)
+                }
             }
             Section(header: Text("Definitions")) {
                 if isEditing {
@@ -44,20 +56,32 @@ struct WordView: View {
                     .disabled(!isEditing)
             }
         }
-        .navigationTitle(word.name)
         .navigationBarItems(trailing:
             isEditing ?
                 Button("Save", action: {
-                    book[word].setDefinitions(editedDef)
+                    if !editedName.isEmpty {
+                        book.words.removeValue(forKey: word)
+                        let newWord = Word(name: editedName)
+                        var newInfo = book[word]
+                        newInfo.setDefinitions(editedDef)
+                        book[newWord] = newInfo
+                        if let newIndex = Array(book.words.keys).firstIndex(of: newWord) {
+                            index = newIndex
+                        }
+                    } else {
+                        book[word].setDefinitions(editedDef)
+                    }
                     isEditing = false
                 }) :
                 Button("Edit", action: {
+                    editedName = word.name
                     editedDef = book[word].getDefinitions()
                     isEditing = true
                 })
         )
     }
 }
+
 
 
 
