@@ -15,14 +15,6 @@ struct WordView: View {
         Array(book.words.keys)[index]
     }
 
-    @State private var info: Information
-
-    init(index: Int, book: VocabularyBook) {
-        self.index = index
-        let word = Array(book.words.keys)[index]
-        _info = State(initialValue: book[word])
-    }
-
     @State var isEditing = false
     @State var editedDef = ""
 
@@ -35,22 +27,20 @@ struct WordView: View {
             }
             Section(header: Text("Definitions")) {
                 if isEditing {
-                    TextField("Definitions", text: $editedDef, onCommit: {
-                        info.setDefinitions(editedDef)
-                    })
-                    .onAppear {
-                        editedDef = info.getDefinitions()
-                    }
+                    TextField("Definitions", text: $editedDef)
+                        .onAppear {
+                            editedDef = book[word].getDefinitions()
+                        }
                 } else {
-                    Text(info.getDefinitions())
+                    Text(book[word].getDefinitions())
                 }
             }
             Section(header: Text("Part of Speech")) {
-                Text(info.getPOSs())
+                Text(book[word].getPOSs())
                     .disabled(!isEditing)
             }
             Section(header: Text("Examples")) {
-                Text(info.getExamples())
+                Text(book[word].getExamples())
                     .disabled(!isEditing)
             }
         }
@@ -58,20 +48,17 @@ struct WordView: View {
         .navigationBarItems(trailing:
             isEditing ?
                 Button("Save", action: {
-                    info.setDefinitions(editedDef)
+                    book[word].setDefinitions(editedDef)
                     isEditing = false
-                    book[word] = info
                 }) :
                 Button("Edit", action: {
-                    editedDef = info.getDefinitions()
+                    editedDef = book[word].getDefinitions()
                     isEditing = true
                 })
         )
-        .onDisappear {
-            book[word] = info
-        }
     }
 }
+
 
 
 struct WordView_Previews: PreviewProvider {
@@ -80,9 +67,8 @@ struct WordView_Previews: PreviewProvider {
         let sampleInfo = Information(defs: "a representative or illustrative instance", poss: "noun", exs: "This is an example of a sentence.")
         let sampleBook = VocabularyBook()
         sampleBook.add(word: sampleWord, info: sampleInfo)
-
         return NavigationView {
-            WordView(index: 0, book: sampleBook)
+            WordView(index: 0)
                 .environmentObject(sampleBook)
         }
     }

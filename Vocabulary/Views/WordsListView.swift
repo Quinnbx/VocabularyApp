@@ -22,15 +22,15 @@ struct WordsListView: View {
             }
             List {
                 ForEach(Array(book.words.keys.enumerated()), id: \.element) { index, word in
-                    NavigationLink(destination: WordView(index: index, book: book).environmentObject(book)) {
+                    NavigationLink(destination: WordView(index: index).environmentObject(book)) {
                         Text(word.name)
                     }
                 }
-
             }
         }
     }
 }
+
 
 struct WordsListView_Previews: PreviewProvider {
     static var previews: some View {
