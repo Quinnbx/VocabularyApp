@@ -10,7 +10,6 @@ import Foundation
 class VocabBooksData: ObservableObject {
     @Published var vocabBook = VocabularyBook.testVocabBook
     @Published var vocabBooks = Set([VocabularyBook.testVocabBook])
-    
 }
 
 

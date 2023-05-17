@@ -16,25 +16,23 @@ struct WordsListView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Search", text: $search)
-                    .padding(.horizontal)
-                NavigationLink(destination: WordSearchView(searchText: search, book: book, sortedWords: sortedWords)) {
-                    Text("Lookup")
-                }
+        HStack {
+            TextField("Search", text: $search)
+                .padding(.horizontal)
+            NavigationLink(destination: WordSearchView(searchText: search, book: book, sortedWords: sortedWords)) {
+                Text("Lookup")
             }
-           List {
-                ForEach(sortedWords.indices, id: \.self) { index in
-                    let word = sortedWords[index]
-                    if let bookIndex = Array(book.words.keys).firstIndex(of: word) {
-                        NavigationLink(destination: WordView(index: bookIndex).environmentObject(book)) {
-                            Text(word.name)
-                        }
+        }
+       List {
+            ForEach(sortedWords.indices, id: \.self) { index in
+                let word = sortedWords[index]
+                if let bookIndex = Array(book.words.keys).firstIndex(of: word) {
+                    NavigationLink(destination: WordView(index: bookIndex).environmentObject(book)) {
+                        Text(word.name)
                     }
                 }
-                .onDelete(perform: deleteWord)
             }
+            .onDelete(perform: deleteWord)
         }
     }
     
@@ -53,15 +51,3 @@ struct WordsListView_Previews: PreviewProvider {
         }
     }
 }
-
-//NavigationLink(destination: WordView(word: Binding(get: {
-//    word
-//}, set: { newValue in
-//    book.words[newValue] = book.words.removeValue(forKey: word)
-//}), info: Binding(get: {
-//    info
-//}, set: { newValue in
-//    book.words[word] = newValue
-//}))) {
-//    Text(word.name)
-//}

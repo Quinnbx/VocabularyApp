@@ -10,7 +10,7 @@ import Foundation
 class VocabularyBook: Identifiable, ObservableObject, Hashable {
     var id = UUID();
     
-    var n = "My Vocab Book"
+    var n = "Untitled Collection"
     
     @Published var words = [Word : Information]()
     

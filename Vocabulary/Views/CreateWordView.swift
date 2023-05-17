@@ -21,31 +21,29 @@ struct CreateWordView: View {
     
     var body: some View {
         VStack {
-            NavigationView{
-                Form {
-                    TextField("Word", text: $word.name)
-                    
-                    Section(header: Text("Definitions")) {
-                        TextField("Definitions", text: $defs)
-                    }
-                    
-                    Section(header: Text("Part of Speech")) {
-                        TextField("Part of Speech", text: $poss)
-                    }
-                    
-                    Section(header: Text("Examples")) {
-                        TextField("Examples", text: $exs)
-                    }
+            Form {
+                TextField("Word", text: $word.name)
+                
+                Section(header: Text("Definitions")) {
+                    TextField("Definitions", text: $defs)
                 }
-                .navigationBarTitle("Create Word")
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        saveWord()
-                    }, label: {
-                        Text("Save")
-                    })
-                )
+                
+                Section(header: Text("Part of Speech")) {
+                    TextField("Part of Speech", text: $poss)
+                }
+                
+                Section(header: Text("Examples")) {
+                    TextField("Examples", text: $exs)
+                }
             }
+            .navigationBarTitle("Create Word")
+            .navigationBarItems(trailing:
+                Button(action: {
+                    saveWord()
+                }, label: {
+                    Text("Save")
+                })
+            )
         }
     }
     

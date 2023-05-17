@@ -16,8 +16,10 @@ struct WordView: View {
     }
 
     @State var isEditing = false
-    @State var editedDef = ""
     @State var editedName = ""
+    @State var editedDef = ""
+    @State var editedPos = ""
+    @State var editedEx = ""
 
     init(index: Int) {
         _index = State(initialValue: index)
@@ -48,12 +50,24 @@ struct WordView: View {
                 }
             }
             Section(header: Text("Part of Speech")) {
-                Text(book[word].getPOSs())
-                    .disabled(!isEditing)
+                if isEditing {
+                    TextField("Parts of Speech", text: $editedPos)
+                        .onAppear {
+                            editedPos = book[word].getPOSs()
+                        }
+                } else {
+                    Text(book[word].getPOSs())
+                }
             }
             Section(header: Text("Examples")) {
-                Text(book[word].getExamples())
-                    .disabled(!isEditing)
+                if isEditing {
+                    TextField("Examples", text: $editedEx)
+                        .onAppear {
+                            editedPos = book[word].getExamples()
+                        }
+                } else {
+                    Text(book[word].getExamples())
+                }
             }
         }
         .navigationBarItems(trailing:
@@ -64,18 +78,24 @@ struct WordView: View {
                         let newWord = Word(name: editedName)
                         var newInfo = book[word]
                         newInfo.setDefinitions(editedDef)
+                        newInfo.setPOSs(editedPos)
+                        newInfo.setExamples(editedEx)
                         book[newWord] = newInfo
                         if let newIndex = Array(book.words.keys).firstIndex(of: newWord) {
                             index = newIndex
                         }
                     } else {
                         book[word].setDefinitions(editedDef)
+                        book[word].setPOSs(editedPos)
+                        book[word].setExamples(editedEx)
                     }
                     isEditing = false
                 }) :
                 Button("Edit", action: {
                     editedName = word.name
                     editedDef = book[word].getDefinitions()
+                    editedPos = book[word].getPOSs()
+                    editedEx = book[word].getExamples()
                     isEditing = true
                 })
         )

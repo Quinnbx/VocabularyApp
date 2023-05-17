@@ -31,7 +31,7 @@ extension VocabBooksView {
     }
     
     private var navigationTitle: String {
-        "My Vocabulary Books"
+        "Collections"
     }
 }
 
