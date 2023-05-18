@@ -9,30 +9,36 @@ import SwiftUI
 
 struct WordsListView: View {
     @EnvironmentObject var book: VocabularyBook
-    @State private var search = ""
+    @State private var searchText = ""
+    @State private var isShowingWordView: Bool = false
+    @State private var selectedWordIndex: Int? = nil
     
     private var sortedWords: [Word] {
         Array(book.words.keys).sorted { $0.name < $1.name }
     }
     
     var body: some View {
-        HStack {
-            TextField("Search", text: $search)
-                .padding(.horizontal)
-            NavigationLink(destination: WordSearchView(searchText: search, book: book, sortedWords: sortedWords)) {
-                Text("Lookup")
+        NavigationView {
+            List {
+                 ForEach(sortedWords.indices, id: \.self) { index in
+                     let word = sortedWords[index]
+                     if (searchText.isEmpty || word.name.contains(searchText)) {
+                         if let bookIndex = Array(book.words.keys).firstIndex(of: word) {
+                             Button(action: {
+                                 selectedWordIndex = bookIndex
+                                 isShowingWordView = true
+                             }) {
+                                Text(word.name)
+                             }
+                         }
+                     }
+                 }
+                 .onDelete(perform: deleteWord)
+             }
+            .searchable(text: $searchText)
+            .fullScreenCover(isPresented: $isShowingWordView) {
+                WordView(index: $selectedWordIndex).environmentObject(book)
             }
-        }
-       List {
-            ForEach(sortedWords.indices, id: \.self) { index in
-                let word = sortedWords[index]
-                if let bookIndex = Array(book.words.keys).firstIndex(of: word) {
-                    NavigationLink(destination: WordView(index: bookIndex).environmentObject(book)) {
-                        Text(word.name)
-                    }
-                }
-            }
-            .onDelete(perform: deleteWord)
         }
     }
     
@@ -43,6 +49,7 @@ struct WordsListView: View {
         }
     }
 }
+
 
 struct WordsListView_Previews: PreviewProvider {
     static var previews: some View {

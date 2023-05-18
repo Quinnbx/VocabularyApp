@@ -9,6 +9,8 @@ import SwiftUI
 
 struct VocabBooksView: View {
     @StateObject private var vocabBookData = VocabBooksData()
+    @State private var showingModal = false
+
     var body: some View {
         NavigationView {
             List(Array(books), id: \.self) { book in
@@ -20,10 +22,46 @@ struct VocabBooksView: View {
                 )
             }
             .navigationTitle(navigationTitle)
+            .navigationBarItems(trailing: Button(action: {
+                showingModal = true
+            }) {
+                Text("Add")
+            })
+        }
+        .sheet(isPresented: $showingModal) {
+            NewVocabBookView { name in
+                let newBook = VocabularyBook()
+                newBook.n = name
+                vocabBookData.vocabBooks.insert(newBook)
+                showingModal = false
+            }
         }
         .environmentObject(vocabBookData)
     }
 }
+
+struct NewVocabBookView: View {
+    @State private var name = ""
+    @Environment(\.presentationMode) var presentationMode
+    var completion: (String) -> ()
+
+    var body: some View {
+        NavigationView {
+            Form {
+                TextField("Book Name", text: $name)
+            }
+            .navigationBarItems(leading: Button("Dismiss") {
+                presentationMode.wrappedValue.dismiss()
+            }, trailing: Button("Add Book") {
+                completion(name)
+                presentationMode.wrappedValue.dismiss()
+            })
+            .navigationBarTitle("New Vocabulary Book")
+        }
+    }
+}
+
+
 
 extension VocabBooksView {
     private var books: Set<VocabularyBook> {
