@@ -99,6 +99,12 @@ struct WordView: View {
                     isEditing = true
                 })
         )
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                EmptyView()
+            }
+        }
     }
 }
 
