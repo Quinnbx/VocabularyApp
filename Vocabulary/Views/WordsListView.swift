@@ -16,16 +16,29 @@ struct WordsListView: View {
     }
     
     private var filteredWords: [Word] {
-        sortedWords.filter { searchText.isEmpty ? true : $0.name.contains(searchText) }
+        sortedWords.filter { searchText.isEmpty ? true : $0.name.lowercased().contains(searchText.lowercased()) }
     }
 
     var body: some View {
-        NavigationView {
-            //            VStack {}
-            //            .searchable(text: $searchText)
-            //            .navigationTitle("Words")
-            //        }
-            //        VStack {
+        VStack {
+            // Custom Search Bar
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search words...", text: $searchText)
+                    .foregroundColor(.primary)
+                Button(action: {
+                    self.searchText = ""
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .opacity(searchText == "" ? 0 : 1)
+                }
+            }
+            .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+            .background(Color(.systemGray6))
+            .cornerRadius(10)
+            .padding(.horizontal)
+            
+            // List of Words
             List {
                 ForEach(filteredWords.indices, id: \.self) { index in
                     let word = filteredWords[index]
@@ -36,14 +49,14 @@ struct WordsListView: View {
                     }
                 }
                 .onDelete(perform: deleteWord)
-                //            }
-                //            .searchable(text: $searchText)
-                //            .navigationTitle("Words")
             }
-            .searchable(text: $searchText)
-            .navigationTitle("Words")
+            .navigationTitle(book.n)
+            .navigationBarItems(trailing:
+                NavigationLink(destination: CreateWordView().environmentObject(book)) {
+                    Image(systemName: "plus")
+                }
+            )
         }
-
     }
 
     private func deleteWord(at offsets: IndexSet) {

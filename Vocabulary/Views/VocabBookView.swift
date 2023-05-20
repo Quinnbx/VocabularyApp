@@ -12,9 +12,6 @@ struct VocabBookView: View {
     
     var body: some View {
         VStack {
-            NavigationLink(destination: CreateWordView().environmentObject(book)) {
-                Text("Add a word")
-            }
             NavigationLink(destination: WordsListView().environmentObject(book)) {
                 Text("All Vocabulary")
             }
