@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* WordsListView.swift */; };
 		EB27629429E378B700D45377 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27629329E378B700D45377 /* WordView.swift */; };
-		EB43455B29E4F84400E39F43 /* VocabBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB43455A29E4F84400E39F43 /* VocabBookView.swift */; };
 		EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49747929EA4E3D007DA920 /* CreateWordView.swift */; };
 		EB4E852729E6340900A4FF1E /* WordSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E852629E6340900A4FF1E /* WordSearchView.swift */; };
 		EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		EB023CBD29E2252F00038467 /* WordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListView.swift; sourceTree = "<group>"; };
 		EB27629329E378B700D45377 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
-		EB43455A29E4F84400E39F43 /* VocabBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBookView.swift; sourceTree = "<group>"; };
 		EB49747929EA4E3D007DA920 /* CreateWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordView.swift; sourceTree = "<group>"; };
 		EB4E852629E6340900A4FF1E /* WordSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchView.swift; sourceTree = "<group>"; };
 		EBE36E0B29E0DD95001567B5 /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +160,6 @@
 				EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */,
 				EB023CBD29E2252F00038467 /* WordsListView.swift */,
 				EB27629329E378B700D45377 /* WordView.swift */,
-				EB43455A29E4F84400E39F43 /* VocabBookView.swift */,
 				EB4E852629E6340900A4FF1E /* WordSearchView.swift */,
 				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
 			);
@@ -308,7 +305,6 @@
 				EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */,
 				EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */,
 				EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */,
-				EB43455B29E4F84400E39F43 /* VocabBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
