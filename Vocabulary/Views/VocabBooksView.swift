@@ -14,12 +14,15 @@ struct VocabBooksView: View {
     var body: some View {
         NavigationView {
             List(Array(books), id: \.self) { book in
-                NavigationLink(
-                    destination: VocabBookView().environmentObject(book),
-                    label: {
-                        Text(book.n)
-                    }
-                )
+                NavigationLink(destination: WordsListView().environmentObject(book)) {
+                    Text(book.n)
+                }
+//                NavigationLink(
+//                    destination: VocabBookView().environmentObject(book),
+//                    label: {
+//                        Text(book.n)
+//                    }
+//                )
             }
             .navigationTitle(navigationTitle)
             .navigationBarItems(trailing: Button(action: {
