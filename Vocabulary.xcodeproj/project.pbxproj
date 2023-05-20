@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* WordsListView.swift */; };
+		EB023CBE29E2252F00038467 /* WordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* WordListView.swift */; };
 		EB27629429E378B700D45377 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27629329E378B700D45377 /* WordView.swift */; };
 		EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49747929EA4E3D007DA920 /* CreateWordView.swift */; };
-		EB4E852729E6340900A4FF1E /* WordSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4E852629E6340900A4FF1E /* WordSearchView.swift */; };
 		EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */; };
 		EBE36E1329E0DD96001567B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1229E0DD96001567B5 /* Assets.xcassets */; };
 		EBE36E1729E0DD96001567B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1629E0DD96001567B5 /* Preview Assets.xcassets */; };
@@ -41,10 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB023CBD29E2252F00038467 /* WordsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListView.swift; sourceTree = "<group>"; };
+		EB023CBD29E2252F00038467 /* WordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListView.swift; sourceTree = "<group>"; };
 		EB27629329E378B700D45377 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		EB49747929EA4E3D007DA920 /* CreateWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordView.swift; sourceTree = "<group>"; };
-		EB4E852629E6340900A4FF1E /* WordSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSearchView.swift; sourceTree = "<group>"; };
 		EBE36E0B29E0DD95001567B5 /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyApp.swift; sourceTree = "<group>"; };
 		EBE36E1229E0DD96001567B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,9 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */,
-				EB023CBD29E2252F00038467 /* WordsListView.swift */,
+				EB023CBD29E2252F00038467 /* WordListView.swift */,
 				EB27629329E378B700D45377 /* WordView.swift */,
-				EB4E852629E6340900A4FF1E /* WordSearchView.swift */,
 				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
 			);
 			path = Views;
@@ -230,7 +227,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					EBE36E0A29E0DD95001567B5 = {
 						CreatedOnToolsVersion = 14.2;
@@ -299,11 +296,10 @@
 				EBE36E4229E0F65D001567B5 /* VocabBooksData.swift in Sources */,
 				EBE36E3C29E0DE6D001567B5 /* VocabBooksView.swift in Sources */,
 				EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */,
-				EB4E852729E6340900A4FF1E /* WordSearchView.swift in Sources */,
 				EB27629429E378B700D45377 /* WordView.swift in Sources */,
 				EBE36E4029E0DEB0001567B5 /* Word.swift in Sources */,
 				EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */,
-				EB023CBE29E2252F00038467 /* WordsListView.swift in Sources */,
+				EB023CBE29E2252F00038467 /* WordListView.swift in Sources */,
 				EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +370,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -432,6 +429,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -458,6 +456,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vocabulary/Vocabulary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Vocabulary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -494,6 +493,7 @@
 				CODE_SIGN_ENTITLEMENTS = Vocabulary/Vocabulary.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Vocabulary/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -529,6 +529,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -551,6 +552,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -572,6 +574,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -593,6 +596,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;

@@ -14,7 +14,7 @@ struct VocabBooksView: View {
     var body: some View {
         NavigationView {
             List(Array(books), id: \.self) { book in
-                NavigationLink(destination: WordsListView().environmentObject(book)) {
+                NavigationLink(destination: WordListView().environmentObject(book)) {
                     Text(book.n)
                 }
             }

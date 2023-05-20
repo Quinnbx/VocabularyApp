@@ -12,6 +12,8 @@ struct Word: Identifiable, Hashable {
     
     var name: String
     
+    var favorite: Bool = false
+    
     init(){
         self.init(name: "")
     }
@@ -39,6 +41,7 @@ struct Information {
     private var definitions: String
     private var POSs: String
     private var examples: String
+    
 
     init() {
         self.definitions = ""

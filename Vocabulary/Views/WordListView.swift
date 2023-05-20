@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WordsListView: View {
+struct WordListView: View {
     @EnvironmentObject var book: VocabularyBook
     @State private var searchText = ""
 
@@ -72,7 +72,7 @@ struct WordsListView: View {
 struct WordsListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WordsListView()
+            WordListView()
         }
     }
 }

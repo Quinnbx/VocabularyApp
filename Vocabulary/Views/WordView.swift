@@ -6,27 +6,55 @@
 //
 
 import SwiftUI
+import SafariServices
+import UIKit
+
+struct WebView: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+        // Nothing to do
+    }
+}
 
 struct EditableField: View {
     var label: String
     var value: String
     @Binding var editedValue: String
     @Binding var isEditing: Bool
+    var buttonImage: String? = nil
+    var buttonAction: (() -> Void)? = nil
 
     var body: some View {
         Section(header: Text(label)) {
-            if isEditing {
-                TextField(label, text: $editedValue)
-            } else {
-                Text(value)
+            HStack {
+                if isEditing {
+                    TextField(label, text: $editedValue)
+                } else {
+                    Text(value)
+                    Spacer()
+                    if let image = buttonImage, let action = buttonAction {
+                        Button(action: action) {
+                            Image(systemName: image)
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                    }
+                }
             }
         }
     }
 }
 
+
 struct WordView: View {
     @EnvironmentObject var book: VocabularyBook
     @State private var index: Int
+    @State private var showWebpage = false
 
     private var word: Word {
         Array(book.words.keys)[index]
@@ -44,10 +72,50 @@ struct WordView: View {
 
     var body: some View {
         Form {
-            EditableField(label: "Word", value: word.name, editedValue: $editedName, isEditing: $isEditing)
+            EditableField(label: "Word", value: word.name, editedValue: $editedName, isEditing: $isEditing, buttonImage: "doc.on.doc", buttonAction: {
+                UIPasteboard.general.string = word.name
+            })
             EditableField(label: "Definitions", value: book[word].getDefinitions(), editedValue: $editedDef, isEditing: $isEditing)
             EditableField(label: "Part of Speech", value: book[word].getPOSs(), editedValue: $editedPos, isEditing: $isEditing)
             EditableField(label: "Examples", value: book[word].getExamples(), editedValue: $editedEx, isEditing: $isEditing)
+            HStack {
+                if let url = URL(string: "https://www.oxfordlearnersdictionaries.com/us/") {
+                    Button(action: {
+                        showWebpage = true
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .aspectRatio(contentMode: .fit)
+                            .padding()
+                            .background(Color.primary.opacity(0.1))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        Text("Oxford Dictionary")
+                            .font(.system(size: 10))
+                    }
+                    .sheet(isPresented: $showWebpage) {
+                        WebView(url: url)
+                    }
+                }
+                if let url = URL(string: "https://www.thesaurus.com/") {
+                    Button(action: {
+                        showWebpage = true
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .aspectRatio(contentMode: .fit)
+                            .padding()
+                            .background(Color.primary.opacity(0.1))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        Text("Synonyms")
+                            .font(.system(size: 10))
+                    }
+                    .sheet(isPresented: $showWebpage) {
+                        WebView(url: url)
+                    }
+                }
+            }
         }
         .navigationBarItems(trailing:
             isEditing ?
