@@ -50,7 +50,6 @@ struct EditableField: View {
     }
 }
 
-
 struct WordView: View {
     @EnvironmentObject var book: VocabularyBook
     @State private var index: Int
@@ -118,9 +117,16 @@ struct WordView: View {
             }
         }
         .navigationBarItems(trailing:
-            isEditing ?
-                Button("Save", action: saveAction) :
-                Button("Edit", action: editAction)
+            HStack {
+                Button(action: favoriteAction) {
+                    Image(systemName: word.favorite ? "heart.fill" : "heart")
+                }
+                .foregroundColor(word.favorite ? .red : .gray)
+
+                isEditing ?
+                    Button("Save", action: saveAction) :
+                    Button("Edit", action: editAction)
+            }
         )
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -139,7 +145,7 @@ struct WordView: View {
     }
 
     private func saveAction() {
-        let newWord = Word(name: editedName)
+        let newWord = Word(name: editedName, favorite: word.favorite)
         var newInfo = book[word]
         newInfo.setDefinitions(editedDef)
         newInfo.setPOSs(editedPos)
@@ -158,11 +164,20 @@ struct WordView: View {
         isEditing = false
     }
 
+    private func favoriteAction() {
+        var updatedWord = word
+        updatedWord.favorite.toggle()
+        book.rename(oldWord: word, newWord: updatedWord)
+        if let newIndex = Array(book.words.keys).firstIndex(of: updatedWord) {
+            index = newIndex
+        }
+    }
 
     private func editAction() {
         isEditing = true
     }
 }
+
 
 struct WordView_Previews: PreviewProvider {
     static var previews: some View {

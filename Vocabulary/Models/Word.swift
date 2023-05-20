@@ -11,15 +11,15 @@ struct Word: Identifiable, Hashable {
     var id = UUID()
     
     var name: String
-    
-    var favorite: Bool = false
+    var favorite: Bool
     
     init(){
-        self.init(name: "")
+        self.init(name: "", favorite: false)
     }
     
-    init(name: String) {
+    init(name: String, favorite: Bool = false) {
         self.name = name.lowercased()
+        self.favorite = favorite
     }
     
     var isValid: Bool {
@@ -33,9 +33,8 @@ struct Word: Identifiable, Hashable {
     static func ==(lhs: Word, rhs: Word) -> Bool {
         return lhs.name == rhs.name
     }
-    
-    
 }
+
 
 struct Information {
     private var definitions: String
