@@ -156,8 +156,8 @@
 		EBE36E3929E0DE2C001567B5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */,
 				EBE36E3F29E0DEB0001567B5 /* Word.swift */,
+				EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */,
 				EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */,
 			);
 			path = Models;
@@ -166,10 +166,10 @@
 		EBE36E3A29E0DE39001567B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
 				EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */,
 				EB023CBD29E2252F00038467 /* WordListView.swift */,
 				EB27629329E378B700D45377 /* WordView.swift */,
-				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
