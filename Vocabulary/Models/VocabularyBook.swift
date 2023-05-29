@@ -7,7 +7,7 @@
 
 import Foundation
 
-class VocabularyBook: Identifiable, ObservableObject, Hashable {
+class VocabularyBook: Identifiable, ObservableObject, Hashable, Codable {
     var id = UUID();
     
     var n = "Untitled Collection"
@@ -18,6 +18,29 @@ class VocabularyBook: Identifiable, ObservableObject, Hashable {
     
     init(words: [Word : Information]){
         self.words = words
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case n
+        case words
+    }
+
+    /*
+     Implementation of 'Decodable' for non-final class cannot be automatically synthesized in extension because initializer requirement 'init(from:)' can only be satisfied by a 'required' initializer in the class definition
+     */
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(UUID.self, forKey: .id)
+        n = try values.decode(String.self, forKey: .n)
+        words = try values.decode([Word: Information].self, forKey: .words)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(n, forKey: .n)
+        try container.encode(words, forKey: .words)
     }
     
     func hash(into hasher: inout Hasher) {

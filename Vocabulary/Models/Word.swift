@@ -8,8 +8,8 @@
 import Foundation
 
 struct Word: Identifiable, Hashable {
-    var id = UUID()
     
+    var id = UUID()
     var name: String
     var favorite: Bool
     
@@ -32,6 +32,12 @@ struct Word: Identifiable, Hashable {
     
     static func ==(lhs: Word, rhs: Word) -> Bool {
         return lhs.name == rhs.name
+    }
+}
+
+extension Word: Codable {
+    enum CodingKeys: CodingKey {
+        case id, name, favorite
     }
 }
 
@@ -82,4 +88,10 @@ struct Information {
         examples = newValue
     }
     
+}
+
+extension Information: Codable {
+    enum CodingKeys: CodingKey {
+        case definitions, POSs, examples
+    }
 }
