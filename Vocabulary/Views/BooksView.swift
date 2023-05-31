@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct VocabBooksView: View {
-    @StateObject private var vocabBookData = VocabBooksData()
+struct BooksView: View {
+    @StateObject private var bookSet = VocabularyBookSet(books: Set([VocabularyBook.testVocabBook]))
     @State private var showingModal = false
 
     var body: some View {
         NavigationView {
-            List(Array(books), id: \.self) { book in
-                NavigationLink(destination: WordListView().environmentObject(book)) {
+            List(Array(bookSet.books), id: \.self) { book in
+                NavigationLink(destination: ListView().environmentObject(book)) {
                     Text(book.n)
                 }
             }
@@ -29,11 +29,11 @@ struct VocabBooksView: View {
             NewVocabBookView { name in
                 let newBook = VocabularyBook()
                 newBook.n = name
-                vocabBookData.vocabBooks.insert(newBook)
+                bookSet.insert(newBook)
                 showingModal = false
             }
         }
-        .environmentObject(vocabBookData)
+        .environmentObject(bookSet)
     }
 }
 
@@ -58,12 +58,10 @@ struct NewVocabBookView: View {
     }
 }
 
-
-
-extension VocabBooksView {
-    private var books: Set<VocabularyBook> {
-        vocabBookData.vocabBooks
-    }
+extension BooksView {
+//    private var books: Set<VocabularyBook> {
+//        Set([VocabularyBook.testVocabBook])
+//    }
     
     private var navigationTitle: String {
         "Collections"
@@ -72,6 +70,6 @@ extension VocabBooksView {
 
 struct VocabBooksView_Previews: PreviewProvider {
     static var previews: some View {
-        VocabBooksView()
+        BooksView()
     }
 }

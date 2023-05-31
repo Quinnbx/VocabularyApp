@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB023CBE29E2252F00038467 /* WordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* WordListView.swift */; };
+		EB023CBE29E2252F00038467 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB023CBD29E2252F00038467 /* ListView.swift */; };
 		EB27629429E378B700D45377 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB27629329E378B700D45377 /* WordView.swift */; };
 		EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49747929EA4E3D007DA920 /* CreateWordView.swift */; };
 		EBA2AA1A2A2391A800D390BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBA2AA192A2391A800D390BA /* GoogleService-Info.plist */; };
@@ -15,16 +15,17 @@
 		EBA2AA1F2A23967600D390BA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBA2AA1E2A23967600D390BA /* FirebaseAuth */; };
 		EBA2AA212A23967600D390BA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EBA2AA202A23967600D390BA /* FirebaseFirestore */; };
 		EBA2AA232A23967600D390BA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBA2AA222A23967600D390BA /* FirebaseFirestoreSwift */; };
+		EBD98EBB2A25097C004829A8 /* CollectionsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98EBA2A25097C004829A8 /* CollectionsRepo.swift */; };
+		EBD98EBE2A250C9E004829A8 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD98EBD2A250C9E004829A8 /* ListViewModel.swift */; };
 		EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */; };
 		EBE36E1329E0DD96001567B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1229E0DD96001567B5 /* Assets.xcassets */; };
 		EBE36E1729E0DD96001567B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE36E1629E0DD96001567B5 /* Preview Assets.xcassets */; };
 		EBE36E2129E0DD97001567B5 /* VocabularyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2029E0DD97001567B5 /* VocabularyTests.swift */; };
 		EBE36E2B29E0DD97001567B5 /* VocabularyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2A29E0DD97001567B5 /* VocabularyUITests.swift */; };
 		EBE36E2D29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E2C29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift */; };
-		EBE36E3C29E0DE6D001567B5 /* VocabBooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */; };
+		EBE36E3C29E0DE6D001567B5 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3B29E0DE6D001567B5 /* BooksView.swift */; };
 		EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */; };
 		EBE36E4029E0DEB0001567B5 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E3F29E0DEB0001567B5 /* Word.swift */; };
-		EBE36E4229E0F65D001567B5 /* VocabBooksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB023CBD29E2252F00038467 /* WordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListView.swift; sourceTree = "<group>"; };
+		EB023CBD29E2252F00038467 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		EB27629329E378B700D45377 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		EB49747929EA4E3D007DA920 /* CreateWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordView.swift; sourceTree = "<group>"; };
 		EBA2AA192A2391A800D390BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBD98EBA2A25097C004829A8 /* CollectionsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsRepo.swift; sourceTree = "<group>"; };
+		EBD98EBD2A250C9E004829A8 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		EBE36E0B29E0DD95001567B5 /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyApp.swift; sourceTree = "<group>"; };
 		EBE36E1229E0DD96001567B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,10 +62,9 @@
 		EBE36E2629E0DD97001567B5 /* VocabularyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VocabularyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE36E2A29E0DD97001567B5 /* VocabularyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyUITests.swift; sourceTree = "<group>"; };
 		EBE36E2C29E0DD97001567B5 /* VocabularyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBooksView.swift; sourceTree = "<group>"; };
+		EBE36E3B29E0DE6D001567B5 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
 		EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyBook.swift; sourceTree = "<group>"; };
 		EBE36E3F29E0DEB0001567B5 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabBooksData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBD98EBC2A250C83004829A8 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBD98EBD2A250C9E004829A8 /* ListViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 		EBE36E0229E0DD95001567B5 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,8 @@
 				EBE36E0E29E0DD95001567B5 /* VocabularyApp.swift */,
 				EBE36E3929E0DE2C001567B5 /* Models */,
 				EBE36E3A29E0DE39001567B5 /* Views */,
+				EBD98EBC2A250C83004829A8 /* View Models */,
+				EBD98EBA2A25097C004829A8 /* CollectionsRepo.swift */,
 				EBE36E1229E0DD96001567B5 /* Assets.xcassets */,
 				EBA2AA192A2391A800D390BA /* GoogleService-Info.plist */,
 				EBE36E1429E0DD96001567B5 /* Vocabulary.entitlements */,
@@ -158,7 +170,6 @@
 			children = (
 				EBE36E3F29E0DEB0001567B5 /* Word.swift */,
 				EBE36E3D29E0DE8B001567B5 /* VocabularyBook.swift */,
-				EBE36E4129E0F65D001567B5 /* VocabBooksData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				EB49747929EA4E3D007DA920 /* CreateWordView.swift */,
-				EBE36E3B29E0DE6D001567B5 /* VocabBooksView.swift */,
-				EB023CBD29E2252F00038467 /* WordListView.swift */,
+				EBE36E3B29E0DE6D001567B5 /* BooksView.swift */,
+				EB023CBD29E2252F00038467 /* ListView.swift */,
 				EB27629329E378B700D45377 /* WordView.swift */,
 			);
 			path = Views;
@@ -314,13 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBE36E4229E0F65D001567B5 /* VocabBooksData.swift in Sources */,
-				EBE36E3C29E0DE6D001567B5 /* VocabBooksView.swift in Sources */,
+				EBD98EBB2A25097C004829A8 /* CollectionsRepo.swift in Sources */,
+				EBE36E3C29E0DE6D001567B5 /* BooksView.swift in Sources */,
 				EB49747A29EA4E3D007DA920 /* CreateWordView.swift in Sources */,
 				EB27629429E378B700D45377 /* WordView.swift in Sources */,
 				EBE36E4029E0DEB0001567B5 /* Word.swift in Sources */,
 				EBE36E3E29E0DE8B001567B5 /* VocabularyBook.swift in Sources */,
-				EB023CBE29E2252F00038467 /* WordListView.swift in Sources */,
+				EB023CBE29E2252F00038467 /* ListView.swift in Sources */,
+				EBD98EBE2A250C9E004829A8 /* ListViewModel.swift in Sources */,
 				EBE36E0F29E0DD95001567B5 /* VocabularyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

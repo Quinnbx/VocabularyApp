@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct WordListView: View {
+struct ListView: View {
+    @StateObject var viewModel = WordsViewModel()
     @EnvironmentObject var book: VocabularyBook
     @State private var searchText = ""
 
@@ -52,7 +53,7 @@ struct WordListView: View {
             }
             .navigationTitle(book.n)
             .navigationBarItems(trailing:
-                NavigationLink(destination: CreateWordView().environmentObject(book)) {
+                    NavigationLink(destination:CreateWordView(createAction:viewModel.makeCreateAction()).environmentObject(book)) {
                     Image(systemName: "plus")
                 }
             )
@@ -72,7 +73,7 @@ struct WordListView: View {
 struct WordsListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            WordListView()
+            ListView()
         }
     }
 }

@@ -111,3 +111,15 @@ extension VocabularyBook {
             exs: "She has very good sight.")
         ])
 }
+
+class VocabularyBookSet: ObservableObject {
+    @Published var books: Set<VocabularyBook>
+    
+    init(books: Set<VocabularyBook> = []) {
+        self.books = books
+    }
+    
+    func insert(_ book: VocabularyBook) {
+        books.insert(book)
+    }
+}

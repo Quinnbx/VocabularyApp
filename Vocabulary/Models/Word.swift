@@ -43,6 +43,7 @@ extension Word: Codable {
 
 
 struct Information {
+    var id = UUID()
     private var definitions: String
     private var POSs: String
     private var examples: String
@@ -92,6 +93,6 @@ struct Information {
 
 extension Information: Codable {
     enum CodingKeys: CodingKey {
-        case definitions, POSs, examples
+        case id, definitions, POSs, examples
     }
 }
